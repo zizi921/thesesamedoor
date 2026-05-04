@@ -330,13 +330,50 @@ export default function Home() {
 
         {/* Workshop - 工作坊 */}
         {activeTab === 'workshop' && (
-          <div className="w-full h-full flex flex-col items-center justify-center max-w-4xl mx-auto fade-in p-4 md:p-8">
-            <div className="w-full flex justify-center fade-in">
-              <img
-                src="/images/workshop-illustration.png"
-                alt="Workshop Illustration"
-                className="w-full h-auto max-h-[70vh] object-contain rounded-[2rem] border-4 border-brand-dark playful-shadow bg-brand-yellow/10 p-2"
-              />
+          <div className="w-full h-full fade-in overflow-y-auto p-4 md:p-6 lg:p-8 flex items-center justify-center">
+            <div className="w-full max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-8 md:gap-12 lg:gap-16">
+              
+              {/* 左侧/上方 插画 */}
+              <div className="w-full md:w-1/2 flex justify-center fade-in">
+                <img
+                  src="/images/workshop-illustration.png"
+                  alt="Workshop Illustration"
+                  className="w-full max-w-md md:max-w-full h-auto max-h-[40vh] md:max-h-[70vh] object-contain rounded-[2rem] border-4 border-brand-dark playful-shadow bg-brand-yellow/10 p-2 -rotate-1"
+                />
+              </div>
+
+              {/* 右侧/下方 课程介绍 */}
+              <div className="w-full md:w-1/2 flex flex-col gap-4 md:gap-6">
+                <div className="text-center md:text-left">
+                  <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-3 md:mb-4">Our Workshop 👩🏻‍🍳</h2>
+                  <p className="text-base md:text-lg text-brand-dark/80 mb-4 md:mb-6 px-2 md:px-0">
+                    Join us in the kitchen! Whether you want to spend a fun afternoon or learn professional skills, we have a place for you.
+                  </p>
+                </div>
+
+                <div className="flex flex-col gap-4 md:gap-6 px-2 md:px-0">
+                  {/* 蛋糕体验 */}
+                  <div className="bg-brand-pink/20 border-4 border-brand-dark rounded-3xl p-5 md:p-6 playful-shadow hover:translate-y-[-4px] transition-transform rotate-1">
+                    <h3 className="text-xl md:text-2xl font-bold mb-2 flex items-center gap-2">
+                      🍰 Cake Experience
+                    </h3>
+                    <p className="text-sm md:text-base text-brand-dark/80 leading-relaxed">
+                      A fun and relaxing cake-making class for everyone. No experience needed — just bring your ideas and create the cake you’ve always wanted.
+                    </p>
+                  </div>
+
+                  {/* 蛋糕培训班 */}
+                  <div className="bg-brand-blue/20 border-4 border-brand-dark rounded-3xl p-5 md:p-6 playful-shadow hover:translate-y-[-4px] transition-transform -rotate-1">
+                    <h3 className="text-xl md:text-2xl font-bold mb-2 flex items-center gap-2">
+                      🎓 Learning Class
+                    </h3>
+                    <p className="text-sm md:text-base text-brand-dark/80 leading-relaxed">
+                      A complete cake course where you can learn step by step, from basic preparation to final decoration, and understand the whole cake-making process from start to finish.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
             </div>
           </div>
         )}
