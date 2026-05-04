@@ -62,7 +62,7 @@ export default function Home() {
   ];
 
   return (
-    <div className="flex flex-col md:flex-row h-screen w-full bg-white font-sans text-brand-dark overflow-hidden">
+    <div className="flex flex-col md:flex-row-reverse h-screen w-full bg-white font-sans text-brand-dark overflow-hidden">
 
       {/* 左侧内容区 (左边 3/4) */}
       <div className="w-full md:w-3/4 h-[60vh] md:h-screen overflow-y-auto bg-white p-4 md:p-8">
@@ -82,11 +82,11 @@ export default function Home() {
         {activeTab === 'menu' && (
           <div className="w-full h-full flex flex-col items-center max-w-4xl mx-auto fade-in p-4 md:p-6 overflow-hidden">
             {/* 插画 */}
-            <div className="w-full max-w-md mb-4 shrink-0">
+            <div className="w-full max-w-2xl mb-4 shrink-0 flex justify-center">
               <img
                 src="/images/menu-illustration.png"
                 alt="Menu Illustration"
-                className="w-full h-auto object-cover rounded-[2rem] border-4 border-brand-dark playful-shadow"
+                className="w-full max-h-[25vh] lg:max-h-[30vh] object-cover object-center rounded-[2rem] border-4 border-brand-dark playful-shadow"
               />
             </div>
 
@@ -140,7 +140,6 @@ export default function Home() {
                         alt={selectedCake.name}
                         className="max-h-[45vh] w-auto object-contain rounded-[2rem] border-4 border-brand-dark playful-shadow"
                       />
-                      <h4 className="text-xl font-bold mt-2">{selectedCake.name}</h4>
                     </div>
                   ) : (
                     <p className="text-xl text-brand-dark/40">← Select a cake</p>
@@ -173,7 +172,6 @@ export default function Home() {
                         alt={selectedCake.name}
                         className="max-h-[45vh] w-auto object-contain rounded-[2rem] border-4 border-brand-dark playful-shadow"
                       />
-                      <h4 className="text-xl font-bold mt-2">{selectedCake.name}</h4>
                     </div>
                   ) : (
                     <p className="text-xl text-brand-dark/40">← Select a cake</p>
@@ -206,7 +204,6 @@ export default function Home() {
                         alt={selectedCake.name}
                         className="max-h-[45vh] w-auto object-contain rounded-[2rem] border-4 border-brand-dark playful-shadow"
                       />
-                      <h4 className="text-xl font-bold mt-2">{selectedCake.name}</h4>
                     </div>
                   ) : (
                     <p className="text-xl text-brand-dark/40">← Select a cake</p>
@@ -239,7 +236,6 @@ export default function Home() {
                         alt={selectedCake.name}
                         className="max-h-[45vh] w-auto object-contain rounded-[2rem] border-4 border-brand-dark playful-shadow"
                       />
-                      <h4 className="text-xl font-bold mt-2">{selectedCake.name}</h4>
                     </div>
                   ) : (
                     <p className="text-xl text-brand-dark/40">← Select a cake</p>
@@ -252,79 +248,82 @@ export default function Home() {
 
         {/* Order Now - 订购信息 */}
         {activeTab === 'order' && (
-          <div className="w-full h-full flex flex-col justify-center max-w-2xl mx-auto fade-in p-4 overflow-y-auto">
-            <div className="bg-brand-blue border-4 border-brand-dark rounded-[3rem] p-8 md:p-12 playful-shadow rotate-1">
-              <div className="w-full flex justify-center mb-6">
+          <div className="w-full h-full fade-in overflow-y-auto p-4 md:p-6 lg:p-8 flex items-center justify-center">
+            <div className="w-full max-w-6xl mx-auto bg-brand-blue border-4 border-brand-dark rounded-[2rem] md:rounded-[3rem] p-8 md:p-12 lg:p-16 playful-shadow rotate-1 flex flex-col md:flex-row items-center gap-8 md:gap-16">
+              
+              <div className="w-full md:w-5/12 flex flex-col items-center justify-center text-center">
                 <img
                   src="/images/order-illustration.png"
                   alt="Order Illustration"
-                  className="w-full max-w-sm h-auto object-cover rounded-2xl border-4 border-brand-dark playful-shadow -rotate-2"
+                  className="w-32 md:w-40 lg:w-52 h-auto max-h-[20vh] object-cover object-center rounded-[1.5rem] border-4 border-brand-dark playful-shadow -rotate-2 mb-4 md:mb-6"
                 />
+                <h2 className="text-3xl md:text-4xl font-bold mb-2 md:mb-4">Ready to Order? 🎂</h2>
+                <p className="text-sm md:text-base lg:text-lg text-brand-dark/80 px-2 md:px-4">
+                  Each cake is custom made with love. Please allow at least 48 hours notice for all orders.
+                </p>
               </div>
-              <h2 className="text-4xl font-bold mb-4 text-center">Ready to Order? 🎂</h2>
-              <p className="text-lg mb-8 text-brand-dark/80 text-center">
-                Each cake is custom made with love. Please allow at least 48 hours notice for all orders.
-              </p>
 
-              <form onSubmit={handleSubmit} className="space-y-4 bg-white border-4 border-brand-dark rounded-3xl p-6 -rotate-1">
-                <div>
-                  <label className="block text-brand-dark font-bold mb-1">Your Name</label>
-                  <input
-                    type="text"
-                    required
-                    value={formData.name}
-                    onChange={(e) => setFormData({...formData, name: e.target.value})}
-                    className="w-full border-2 border-brand-dark rounded-xl p-3 focus:outline-none focus:border-brand-orange bg-brand-light/50"
-                    placeholder="Alice"
-                  />
-                </div>
-                <div>
-                  <label className="block text-brand-dark font-bold mb-1">Your Email</label>
-                  <input
-                    type="email"
-                    required
-                    value={formData.email}
-                    onChange={(e) => setFormData({...formData, email: e.target.value})}
-                    className="w-full border-2 border-brand-dark rounded-xl p-3 focus:outline-none focus:border-brand-orange bg-brand-light/50"
-                    placeholder="alice@example.com"
-                  />
-                </div>
-                <div>
-                  <label className="block text-brand-dark font-bold mb-1">Date</label>
-                  <input
-                    type="date"
-                    required
-                    value={formData.date}
-                    onChange={(e) => setFormData({...formData, date: e.target.value})}
-                    className="w-full border-2 border-brand-dark rounded-xl p-3 focus:outline-none focus:border-brand-orange bg-brand-light/50"
-                  />
-                </div>
-                <div>
-                  <label className="block text-brand-dark font-bold mb-1">Cake Details / Message</label>
-                  <textarea
-                    required
-                    value={formData.message}
-                    onChange={(e) => setFormData({...formData, message: e.target.value})}
-                    className="w-full border-2 border-brand-dark rounded-xl p-3 h-32 focus:outline-none focus:border-brand-orange bg-brand-light/50 resize-none"
-                    placeholder="I would like a strawberry dream cake for a birthday on..."
-                  />
-                </div>
+              <div className="w-full md:w-7/12">
+                <form onSubmit={handleSubmit} className="space-y-3 md:space-y-4 bg-white border-4 border-brand-dark rounded-2xl md:rounded-3xl p-5 md:p-6 lg:p-8 -rotate-1">
+                  <div>
+                    <label className="block text-brand-dark font-bold mb-1 md:mb-1.5 text-sm md:text-base">Your Name</label>
+                    <input
+                      type="text"
+                      required
+                      value={formData.name}
+                      onChange={(e) => setFormData({...formData, name: e.target.value})}
+                      className="w-full border-2 border-brand-dark rounded-xl p-2.5 md:p-3 text-sm md:text-base focus:outline-none focus:border-brand-orange bg-brand-light/50"
+                      placeholder="Alice"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-brand-dark font-bold mb-1 md:mb-1.5 text-sm md:text-base">Your Email</label>
+                    <input
+                      type="email"
+                      required
+                      value={formData.email}
+                      onChange={(e) => setFormData({...formData, email: e.target.value})}
+                      className="w-full border-2 border-brand-dark rounded-xl p-2.5 md:p-3 text-sm md:text-base focus:outline-none focus:border-brand-orange bg-brand-light/50"
+                      placeholder="alice@example.com"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-brand-dark font-bold mb-1 md:mb-1.5 text-sm md:text-base">Date</label>
+                    <input
+                      type="date"
+                      required
+                      value={formData.date}
+                      onChange={(e) => setFormData({...formData, date: e.target.value})}
+                      className="w-full border-2 border-brand-dark rounded-xl p-2.5 md:p-3 text-sm md:text-base focus:outline-none focus:border-brand-orange bg-brand-light/50"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-brand-dark font-bold mb-1 md:mb-1.5 text-sm md:text-base">Cake Details / Message</label>
+                    <textarea
+                      required
+                      value={formData.message}
+                      onChange={(e) => setFormData({...formData, message: e.target.value})}
+                      className="w-full border-2 border-brand-dark rounded-xl p-2.5 md:p-3 text-sm md:text-base h-24 md:h-32 focus:outline-none focus:border-brand-orange bg-brand-light/50 resize-none"
+                      placeholder="I would like a strawberry dream cake for a birthday on..."
+                    />
+                  </div>
 
-                <button
-                  type="submit"
-                  disabled={status === 'sending'}
-                  className="w-full bg-brand-yellow text-brand-dark font-bold text-xl py-4 rounded-xl border-2 border-brand-dark hover-playful-shadow transition-all disabled:opacity-50 mt-4"
-                >
-                  {status === 'sending' ? 'Sending...' : 'Send Inquiry ✨'}
-                </button>
+                  <button
+                    type="submit"
+                    disabled={status === 'sending'}
+                    className="w-full bg-brand-yellow text-brand-dark font-bold text-lg md:text-xl py-3 md:py-4 rounded-xl border-2 border-brand-dark hover-playful-shadow transition-all disabled:opacity-50 mt-2 md:mt-4"
+                  >
+                    {status === 'sending' ? 'Sending...' : 'Send Inquiry ✨'}
+                  </button>
 
                 {status === 'success' && (
-                  <p className="text-green-600 font-bold text-center mt-4">Message sent successfully! We will get back to you soon.</p>
+                  <p className="text-green-600 font-bold text-center mt-4 text-lg">Message sent successfully! We will get back to you soon.</p>
                 )}
                 {status === 'error' && (
-                  <p className="text-red-500 font-bold text-center mt-4">Oops! Something went wrong. Please try again later.</p>
+                  <p className="text-red-500 font-bold text-center mt-4 text-lg">Oops! Something went wrong. Please try again later.</p>
                 )}
               </form>
+              </div>
             </div>
           </div>
         )}
@@ -342,8 +341,8 @@ export default function Home() {
         )}
       </div>
 
-      {/* 右侧导航与介绍 (右边 1/4) */}
-      <div className="w-full md:w-1/4 h-[40vh] md:h-screen bg-white border-t-4 md:border-t-0 md:border-l-4 border-brand-dark flex flex-col p-6 md:p-10 overflow-y-auto">
+      {/* 侧边导航与介绍 (现在改到了左边) */}
+      <div className="w-full md:w-1/4 h-[40vh] md:h-screen bg-white border-t-4 md:border-t-0 md:border-r-4 border-brand-dark flex flex-col p-6 md:p-10 overflow-y-auto">
 
         <div className="mb-20">
           <h1 className="font-bold text-4xl leading-none tracking-tight">
