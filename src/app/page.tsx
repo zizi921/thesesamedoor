@@ -58,7 +58,7 @@ export default function Home() {
     { id: 'home', label: 'Home' },
     { id: 'menu', label: 'Menu' },
     { id: 'order', label: 'Shop' },
-    { id: 'work', label: 'Work' }
+    { id: 'workshop', label: 'Workshop' }
   ];
 
   return (
@@ -328,14 +328,15 @@ export default function Home() {
           </div>
         )}
 
-        {/* Work - 作品展示 */}
-        {activeTab === 'work' && (
-          <div className="w-full h-full flex flex-col justify-center max-w-3xl mx-auto fade-in p-4 md:p-8">
-            <h2 className="text-4xl md:text-5xl font-bold mb-8 leading-tight">Our Work</h2>
-            <div className="space-y-6 text-xl leading-relaxed text-brand-dark/80">
-              <p>
-                Coming soon...
-              </p>
+        {/* Workshop - 工作坊 */}
+        {activeTab === 'workshop' && (
+          <div className="w-full h-full flex flex-col items-center justify-center max-w-4xl mx-auto fade-in p-4 md:p-8">
+            <div className="w-full flex justify-center fade-in">
+              <img
+                src="/images/workshop-illustration.png"
+                alt="Workshop Illustration"
+                className="w-full h-auto max-h-[70vh] object-contain rounded-[2rem] border-4 border-brand-dark playful-shadow bg-brand-yellow/10 p-2"
+              />
             </div>
           </div>
         )}
